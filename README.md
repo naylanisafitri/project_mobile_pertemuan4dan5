@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # project_mobile
 
 A new Flutter project.
@@ -15,3 +16,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# project_mobile_pertemuan4dan5
+Toast, Alert Dialog, dan List VIew
+>>>>>>> cad12e8fc09deb5f833c007d40a6a5c5453356d8
