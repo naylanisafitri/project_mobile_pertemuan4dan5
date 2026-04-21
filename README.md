@@ -1,22 +1,19 @@
-<<<<<<< HEAD
-# project_mobile
+# Project Mobile Pertemuan 4 dan 5
 
-A new Flutter project.
+Aplikasi mobile sederhana menggunakan Flutter.
 
-## Getting Started
+## 📱 Fitur
+- Beranda (Toast & Alert Dialog)
+- List Pertemuan (klik untuk melihat detail)
+- Profile (foto, cover, followers, deskripsi)
 
-This project is a starting point for a Flutter application.
+## 📚 Materi
+- Pertemuan 4: Toast & Alert Dialog
+- Pertemuan 5: ListView
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ Teknologi
+- Flutter
+- Dart
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-=======
-# project_mobile_pertemuan4dan5
-Toast, Alert Dialog, dan List VIew
->>>>>>> cad12e8fc09deb5f833c007d40a6a5c5453356d8
+## 👩‍💻 Dibuat oleh
+Siti Naylani Safitri
