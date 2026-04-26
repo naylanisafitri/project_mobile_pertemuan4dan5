@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'page/beranda_page.dart';
 import 'page/profile_page.dart';
-import 'page/list_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,9 +28,8 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    BerandaPage(),
-    ListPage(),
-    ProfilePage(),
+    const BerandaPage(),
+    const ProfilePage(),
   ];
 
   void _onItemTapped(int index) {
@@ -48,9 +46,10 @@ class _HomePageState extends State<HomePage> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Beranda"),
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: "List"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home), label: "Beranda"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person), label: "Profile"),
         ],
       ),
     );

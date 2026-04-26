@@ -1,88 +1,87 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:project_mobile/page/list_page.dart';
+import 'package:project_mobile/pertemuan/pertemuan6checkbox.dart';
 
 class BerandaPage extends StatelessWidget {
+  const BerandaPage({super.key});
 
-  void showToast(String msg) {
-    Fluttertoast.showToast(msg: msg);
-  }
-
-  void showDialogBox(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text("Konfirmasi"),
-       content: Text(
-        "Ingin melanjutkan ke materi berikutnya?\n"
-        "Klik lanjut untuk melihat penjelasan selanjutnya."
-      ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text("Tidak"),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-              Fluttertoast.showToast(msg: "Silahkan Klik Menu List di Bawah yaaa!!");
-            },
-            child: Text("Lanjut"),
-          ),
-        ],
-      ),
-    );
-  }
+  final List<Map<String, dynamic>> menu = const [
+    {'title': 'Pertemuan 5', 'color': Colors.blue},
+    {'title': 'Pertemuan 6', 'color': Colors.green},
+    {'title': 'Pertemuan 7', 'color': Colors.orange},
+    {'title': 'Pertemuan 8', 'color': Colors.purple},
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Beranda"),
-        centerTitle: true,
+        title: const Text("Dashboard"),
         backgroundColor: Colors.blue,
+        centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Menu Utama",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 20),
+        padding: const EdgeInsets.all(16),
+        child: GridView.builder(
+          itemCount: menu.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 16,
+            mainAxisSpacing: 16,
+          ),
+          itemBuilder: (context, index) {
+            String title = menu[index]['title'];
 
-            ElevatedButton.icon(
-              onPressed: () => showToast("Data berhasil disimpan"),
-              icon: Icon(Icons.save),
-              label: Text("Submit"),
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
+            return GestureDetector(
+              onTap: () {
+                if (title == 'Pertemuan 5') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ListPage(),
+                    ),
+                  );
+                } else if (title == 'Pertemuan 6') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Pertemuan6Checkbox(),
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('$title belum tersedia'),
+                    ),
+                  );
+                }
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: const [
+                    BoxShadow(color: Colors.black12, blurRadius: 5)
+                  ],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.menu_book,
+                      size: 50,
+                      color: menu[index]['color'],
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      title,
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
               ),
-            ),
-
-            SizedBox(height: 10),
-
-            ElevatedButton.icon(
-              onPressed: () => showToast("Data berhasil dihapus"),
-              icon: Icon(Icons.delete),
-              label: Text("Delete"),
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
-              ),
-            ),
-
-            SizedBox(height: 10),
-
-            ElevatedButton.icon(
-              onPressed: () => showDialogBox(context),
-              icon: Icon(Icons.warning),
-              label: Text("Dialog"),
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
-              ),
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
